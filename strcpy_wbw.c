@@ -1,6 +1,4 @@
-#include <string.h>
-#include <limits.h>
-#include <stdio.h>
+#include "strcpy_wbw.h"
 
 /* Nonzero if either X or Y is not aligned on a "long" boundary.  */
 #define UNALIGNED(X, Y) \
@@ -40,12 +38,4 @@ char* strcpy_wbw(char* dst0, const char* src0){
   while ((*dst++ = *src++))
     ;
   return dst0;
-}
-
-int main(){
-  char text[] = "Hello";
-  char text1[20];
-
-  printf("%s\n", strcpy_wbw(text1, text));
-  return 0;
 }
