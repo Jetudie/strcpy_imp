@@ -1,9 +1,7 @@
 #include"strcpy_imp.h"
 
-char* strcpy(char* dst,const char* src){
-	char* ptr = dst;
-	while(*dst++ = *src++)
+void strcpy1(char* dst0,const char* src0){
+	char* dst = dst0;
+	while(*dst0++ = *src0++)
 		;
-	*dst = '\0';
-	return ptr;
 }

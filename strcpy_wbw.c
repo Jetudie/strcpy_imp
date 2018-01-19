@@ -12,7 +12,7 @@
 #error long int is not a 32bit
 #endif
 
-char* strcpy(char* dst0, const char* src0){
+void strcpy1(char* dst0, const char* src0){
 	char *dst = dst0;
 	char *src = src0;
 	long *dstl;
@@ -35,5 +35,4 @@ char* strcpy(char* dst0, const char* src0){
 	src = (char*)srcl;
 	while(*dst++ = *src++)
 		;
-	return dst0;
 }

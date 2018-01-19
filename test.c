@@ -13,20 +13,31 @@ static double tvgetf(void){
 	sec = ts.tv_nsec;
 	sec /= 1e9;
 	sec += ts.tv_sec;
-
 	return sec;
 }
 
 int main(){
 	double t1, t2;
-	char text[] = "Let it go. Let it go. Can't hold it back anymore";
-	char text1[100];
-
+	char text[] = "Let it go. Let it go. Can't hold it back anymore. Let it go. Let it go. Turn away and slam the door";
+	char text1[1024];
+	int idx = 0;
+	char out_file[] = "Time.txt";
+	FILE *fp = fopen(out_file, "w");
+	
+	if(!fp){
+		fprintf(stderr, "error: file open failed '%s'.\n", out_file);
+		return 1;
+	}
 
 	t1 = tvgetf();
-	printf("%s\n", strcpy(text1, text));
+	strcpy1(text1, text);
 	t2 = tvgetf();
 
-	printf("Complete in %f sec.\n", t2-t1);
+	printf("%s\n", text1);
+	idx++;
+	fprintf(fp, "%d %.8f sec\n", idx, t2-t1);
+
+	printf("Complete in %.8f sec.\n", t2-t1);
+	fclose(fp);
 	return 0;
 }

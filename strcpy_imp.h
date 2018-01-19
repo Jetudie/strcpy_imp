@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-char* strcpy_wbw(char*, const char*);
-char* strcpy_bbb(char*, const char*);
+void strcpy_wbw(char*, const char*);
+void strcpy_bbb(char*, const char*);
 
 #endif
