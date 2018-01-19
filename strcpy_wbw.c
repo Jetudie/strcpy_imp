@@ -1,5 +1,4 @@
 #include "strcpy_imp.h"
-#define STRCPY strcpy_wbw
 
 /* Nonzero if either X or Y is not aligned on a "long" boundary.  */
 #define UNALIGNED(X, Y) \
@@ -13,7 +12,7 @@
 #error long int is not a 32bit
 #endif
 
-char* strcpy_wbw(char* dst0, const char* src0){
+char* strcpy(char* dst0, const char* src0){
   char *dst = dst0;
   char *src = src0;
   long *aligned_dst;
