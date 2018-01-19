@@ -4,12 +4,12 @@
 #include"strcpy_bbb.h"
 #include"strcpy_wbw.h"
 
-#ifdef STRCPY_BBB_H_
+#if defined STRCPY_BBB_H_
 #define STRCPY strcpy_bbb
 #else
 
-#ifdef STRCPY_WBW_H_
-#define STRCPY strcpy_wbw
+#if defined STRCPY_WBW_H_
+#define STRCPY(X,Y) strcpy_wbw
 #endif
 #endif
 

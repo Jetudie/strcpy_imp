@@ -1,4 +1,4 @@
-#ifdef STRCPY_WBW_H_
+#ifndef STRCPY_WBW_H_
 #define STRCPY_WBW_H_
 
 #include <string.h>
