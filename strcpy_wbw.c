@@ -1,4 +1,5 @@
-#include "strcpy_wbw.h"
+#include "strcpy_imp.h"
+#define STRCPY strcpy_wbw
 
 /* Nonzero if either X or Y is not aligned on a "long" boundary.  */
 #define UNALIGNED(X, Y) \
