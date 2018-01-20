@@ -4,7 +4,9 @@
 #include<time.h>
 #include"strcpy_imp.h"
 
+
 /* timing helper function */
+/*
 static double tvgetf(void){
 	struct timespec ts;
 	double sec;
@@ -15,29 +17,51 @@ static double tvgetf(void){
 	sec += ts.tv_sec;
 	return sec;
 }
+*/
 
 int main(){
 	double t1, t2;
-	char text[] = "Let it go. Let it go. Can't hold it back anymore. Let it go. Let it go. Turn away and slam the door";
-	char text1[1024];
+	char text[2000];
+	char text1[2000];
 	int idx = 0;
+	int len;
+	char in_file[] = "TEXT.txt";
 	char out_file[] = "Time.txt";
-	FILE *fp = fopen(out_file, "w");
+	
+	FILE *fp = fopen(in_file, "r");
 	
 	if(!fp){
 		fprintf(stderr, "error: file open failed '%s'.\n", out_file);
 		return 1;
 	}
 
-	t1 = tvgetf();
-	strcpy1(text1, text);
-	t2 = tvgetf();
+	/* read the string in the in_file */
+	fscanf(fp, "%s", text);
+	len = strlen(text);
+	printf("%s", text);
+	fclose(fp);
 
-	printf("%s\n", text1);
-	idx++;
-	fprintf(fp, "%d %.8f sec\n", idx, t2-t1);
+	fp = fopen(out_file, "w");
+	
+	if(!fp){
+		fprintf(stderr, "error: file open failed '%s'.\n", out_file);
+		return 1;
+	}
 
-	printf("Complete in %.8f sec.\n", t2-t1);
+	while(len--){
+		/* store the time right before and after strcpy */
+		//t1 = tvgetf();
+		strcpy1(text1, text);
+		//t2 = tvgetf();
+
+		/* make the null terminator one more byte ahead */
+		*(text+len) = '\0';
+		printf("%s\n", text1);
+		idx++;
+		fprintf(fp, "%d %.8f sec\n", idx, t2-t1);
+
+		printf("Complete in %.8f sec.\n", t2-t1);
+	}
 	fclose(fp);
 	return 0;
 }
