@@ -1,8 +1,12 @@
+reset
+set title "strcpy"
 set xlabel "Number of char"
-set ylabel "Time elapse"
+set ylabel "Time elapsed (sec)"
 set key left
-set term jpeg
-set output "test.jpg"
 set grid
-pl [:1614] [:] "Time1.txt" title "byte by byte" lc rgb "green", "Time2.txt" title "word by word" lc rgb "red"
+set term png enhanced font 'Verdana, 12'
+set output "test.png"
+pl [:1614] [:] \
+"Time1.txt" using 1:2 title "byte by byte" lc rgb "green", \
+"Time2.txt" using 1:2 title "word by word" lc rgb "red"
 reset

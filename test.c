@@ -35,7 +35,6 @@ int main(){
 	/* read the string in the in_file */
 	fscanf(fp, "%s", text);
 	len = strlen(text);
-	printf("%s", text);
 	fclose(fp);
 
 	fp = fopen(out_file, "w");
@@ -55,7 +54,6 @@ int main(){
 		*(text+len) = '\0';
 		fprintf(fp, "%d %.8f sec\n", len, t2-t1);
 		len--;
-		printf("Complete in %.8f sec.\n", t2-t1);
 	}
 	fclose(fp);
 	return 0;
