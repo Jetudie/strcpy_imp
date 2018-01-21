@@ -18,7 +18,7 @@ void strcpy1(char* dst0, const char* src0){
 	long *dstl;
 	long *srcl;
 
-	for(int i = 0; i < UNALIGNED(dst0); ++i){
+	for(int i = 0; i < sizeof(long) - UNALIGNED(dst0); ++i){
 		*dst++ = *src++;
 	}
 	

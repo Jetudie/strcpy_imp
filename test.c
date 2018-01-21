@@ -6,7 +6,6 @@
 
 
 /* timing helper function */
-/*
 static double tvgetf(void){
 	struct timespec ts;
 	double sec;
@@ -17,13 +16,11 @@ static double tvgetf(void){
 	sec += ts.tv_sec;
 	return sec;
 }
-*/
 
 int main(){
 	double t1, t2;
 	char text[2000];
 	char text1[2000];
-	int idx = 0;
 	int len;
 	char in_file[] = "TEXT.txt";
 	char out_file[] = "Time.txt";
@@ -50,15 +47,14 @@ int main(){
 
 	while(len--){
 		/* store the time right before and after strcpy */
-		//t1 = tvgetf();
+		t1 = tvgetf();
 		strcpy1(text1, text);
-		//t2 = tvgetf();
+		t2 = tvgetf();
 
 		/* make the null terminator one more byte ahead */
 		*(text+len) = '\0';
 		printf("%s\n", text1);
-		idx++;
-		fprintf(fp, "%d %.8f sec\n", idx, t2-t1);
+		fprintf(fp, "%d %.8f sec\n", len, t2-t1);
 
 		printf("Complete in %.8f sec.\n", t2-t1);
 	}
