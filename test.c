@@ -28,7 +28,7 @@ int main(){
 	FILE *fp = fopen(in_file, "r");
 	
 	if(!fp){
-		fprintf(stderr, "error: file open failed '%s'.\n", out_file);
+		fprintf(stderr, "error: file open failed '%s'.\n", in_file);
 		return 1;
 	}
 
@@ -45,7 +45,7 @@ int main(){
 		return 1;
 	}
 
-	while(len--){
+	while(len){
 		/* store the time right before and after strcpy */
 		t1 = tvgetf();
 		strcpy1(text1, text);
@@ -53,9 +53,8 @@ int main(){
 
 		/* make the null terminator one more byte ahead */
 		*(text+len) = '\0';
-		printf("%s\n", text1);
 		fprintf(fp, "%d %.8f sec\n", len, t2-t1);
-
+		len--;
 		printf("Complete in %.8f sec.\n", t2-t1);
 	}
 	fclose(fp);

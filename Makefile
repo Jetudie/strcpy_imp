@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O0 -mx32
+CFLAGS = -g -O0 -mx32
 # this target compiles bbb and wbw
 all: bbb wbw
 
