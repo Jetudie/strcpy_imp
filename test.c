@@ -19,8 +19,8 @@ static double tvgetf(void){
 
 int main(){
 	double t1, t2;
-	char text[2000];
-	char text1[2000];
+	char text[20000];
+	char text1[20000];
 	int len;
 	char in_file[] = "TEXT.txt";
 	char out_file[] = "Time.txt";

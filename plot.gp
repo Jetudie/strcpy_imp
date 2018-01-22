@@ -6,7 +6,7 @@ set key left
 set grid
 set term png enhanced font 'Verdana, 12'
 set output "test.png"
-pl [:1614] [:] \
+pl [:17913] [:] \
 "Time1.txt" using 1:2 title "byte by byte" lc rgb "green", \
 "Time2.txt" using 1:2 title "word by word" lc rgb "red"
 reset
